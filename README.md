@@ -4,6 +4,8 @@ Esse repositório contém códigos para gerar tempos para músicas e gráficos t
 
 Foi criado como projeto da disciplina ME323 - Introdução aos Modelos Probabilísticos, IMECC Unicamp, 1º semestre de 2021, lecionada pelo professor Jesus Enrique Garcia.
 
+Agradecemos aos Prof. Tiago Tavares e Prof. Jonatas Manzolli, por nos auxiliarem durante o desenvolvimento desse projeto.
+
 ---
 
 This repository contains codes to generate times for songs and turtle graphics using Markov chains, by Elton Cardoso do Nascimento, Marcela Medicina Ferreira and Thiago Danilo Silva de Lacerda.
