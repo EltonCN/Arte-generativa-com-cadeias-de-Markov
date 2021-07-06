@@ -1,5 +1,3 @@
-import time #Sleep
-
 import mido #Trabalhar com arquivos MID
 import numpy as np #Computação numérica
 from matplotlib import pyplot as plt #Plotar dados
