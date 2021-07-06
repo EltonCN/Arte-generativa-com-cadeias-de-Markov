@@ -2,7 +2,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 
-def plot_2dhistogram(histogram, markers, name="histogram", xlabel="x", ylabel="y", save=False):
+def plot_2dhistogram(histogram, markers, name="histogram", xlabel="x", ylabel="y", save=False, subtitulo=""):
     '''
         Plots a 2d histogram from a frequency matrix
 
@@ -38,12 +38,13 @@ def plot_2dhistogram(histogram, markers, name="histogram", xlabel="x", ylabel="y
                         ha="center", va="center", color="w")
 
 
-    plt.title(name)
+    plt.title(subtitulo)
+    plt.suptitle(name)
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     plt.colorbar(im)
     plt.show()
 
     if save:
-        fig.savefig(name+".jpg")
+        fig.savefig(name+" - "+subtitulo+".jpg")
         
