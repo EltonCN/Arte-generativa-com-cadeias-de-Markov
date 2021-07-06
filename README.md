@@ -12,6 +12,7 @@ This repository contains codes to generate times for songs and turtle graphics u
 
 It was created as a project of the discipline ME323 - Introduction to Probabilistic Models, IMECC Unicamp, 1st semester of 2021, taught by professor Jesus Enrique Garcia.
 
+We thank Prof. Tiago Tavares and Prof. Jonatas Manzolli, for helping us during the development of this project.
 
 ## Como usar | How to use
 
