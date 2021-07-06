@@ -3,6 +3,11 @@ import random
 import numpy as np
 
 class Markov():
+    '''
+        Create and manipulate a Markov chain
+
+        Can create the transition matrix and generates a state sequence
+    '''
 
     def __init__(self):
         self.states = {}
@@ -14,6 +19,12 @@ class Markov():
 
     # 1 - func add estado -> add linha add coluna na matriz de transição, add no dict de estados
     def add_states(self, state):
+        '''
+            Add a state to the chain
+
+            Parameters:
+                state: the state key to be added
+        '''
         self.states[state]=len(self.transition) 
 
         size = self.transition.shape[0]
@@ -25,6 +36,9 @@ class Markov():
     # 2 - func gera a matriz de probabilidades acumuladas -> pra cada linha da matriz somar as probab
     # das colunas anteriores, se a col == zero, deixa zero 
     def create_prob_matrix(self):
+        '''
+            Creates the cumulative transition probability matrix
+        '''
         
         matrix = np.zeros_like(self.transition)
         
@@ -40,6 +54,15 @@ class Markov():
     # 3 - func define a probabilidade de uma transição, recebe o estado de entrada, saida e a prob
     #prob 0<=p<=1, os dois estados precisam estar no dict 
     def transition_prob(self, state_prev, state_next, prob):
+        '''
+            Manually set a transition probability of the matrix
+
+            Parameters:
+                state_prev: the previous state key
+                state_next: the next state key
+                prob: the probability in [0,1]
+        '''
+
         prev = self.states[state_prev]
         next = self.states[state_next]
         self.transition[prev][next] = prob
@@ -122,6 +145,16 @@ class Markov():
         return transition, histogram
     
     def from_histogram(self, histogram, states):
+        '''
+            Creates the transition matrix from a histogram
+
+            Parameters:
+                histogram: a n x n matrix with the frequency of state transition
+                states: a list of states, in the same order of the collumns and rows of the histogram
+            
+            Returns:
+                transition: the transition matrix
+        '''
 
         transition = histogram.copy()
 

@@ -2,6 +2,17 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 class TurtleGraph:
+    '''
+       A turtle graphics generator
+
+       The existing commands are declared in "command_list":
+        F - go forward
+        R - turn right
+        L - turn left
+        DIST - randomly change the forward step
+        ANGLE - randomly change the rotation angle
+    '''
+
     command_list = ["F","R","L","DIST","ANGLE"]
 
     def __init__(self):
@@ -17,6 +28,15 @@ class TurtleGraph:
 
     @staticmethod
     def get_rotation(angle):
+        '''
+            Gets a rotation matrix from a angle
+
+            Parameters:
+                angle: rotation angle (rad)
+
+            Returns:
+                R: rotation 2x2 matrix
+        '''
         R = np.eye(2, dtype=np.float64)
 
         R *= np.cos(angle)
@@ -28,6 +48,15 @@ class TurtleGraph:
     
 
     def run_command(self, command):
+        '''
+            Run a command for the turtle
+
+            Parameters:
+                command: the command that will be run. 
+                         Unrecognized commands will do nothing.
+                         See class documentation for available commands
+        '''
+
         if command == "F":
 
             t = np.array([self.dist,0.0], np.float64)
@@ -55,14 +84,31 @@ class TurtleGraph:
         self.hist = np.vstack((self.hist, self.position))
 
     def run_sequence(self, sequence):
+        '''
+            Run a sequence of commands for the turtle
+
+            Parameters:
+                sequence: list with commands
+                          See class documentation for available commands
+        '''
         for command in sequence:
             self.run_command(command)
 
     def plot(self):
+        '''
+            Plots the turtle draw unsing pyplot
+        '''
         plt.plot(self.hist[:,0], self.hist[:,1])
         plt.show()
 
     def parameter_change(self, config):
+        '''
+            Sets if the distance and angle of draw can be changed
+            by a command
+
+            Parameters:
+                config: True if the parameters can be changed, False otherwise
+        '''
         self.change_param = config
 
 

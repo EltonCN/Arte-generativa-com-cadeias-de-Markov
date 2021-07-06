@@ -6,6 +6,8 @@ import numpy as np
 class MID_Handler:
     '''
         Handle the mid file
+
+        Can change the notes times to a user defined list
     '''
 
     def __init__(self, mid):
@@ -36,6 +38,12 @@ class MID_Handler:
 
     @time_sequence.setter
     def time_sequence(self, new_list):
+        '''
+            Sets the times of the music notes
+
+            Parameters:
+                new_list: new list of times for the music
+        '''
         self._time_sequence = new_list
 
     @property
@@ -147,6 +155,14 @@ class MID_Handler:
         port.reset()
 
     def save(self, file_name):
+        '''
+            Saves the music as a MID file
+
+            OBS: It does not work properly
+
+            Parameters:
+                file_name: name of the new mid file
+        '''
         file = mido.MidiFile()
         track = mido.MidiTrack()
 
