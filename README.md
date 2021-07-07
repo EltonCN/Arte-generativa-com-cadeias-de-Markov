@@ -20,4 +20,4 @@ We thank Prof. Tiago Tavares and Prof. Jonatas Manzolli, for helping us during t
 - Instale os requisitos | Install the requirements: `python -m pip install -r requirements.txt`
 - Execute os códigos | Run the codes
   - "musica.py" para gerar tempos de músicas | for generating music times
-  - desenho.py para gerar gráficos tartaruga | for generating turtle graphics
+  - "desenho.py" para gerar gráficos tartaruga | for generating turtle graphics
