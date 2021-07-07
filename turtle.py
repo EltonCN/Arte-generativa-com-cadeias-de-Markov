@@ -94,12 +94,17 @@ class TurtleGraph:
         for command in sequence:
             self.run_command(command)
 
-    def plot(self):
+    def plot(self, nome=""):
         '''
             Plots the turtle draw unsing pyplot
         '''
+        fig = plt.figure(figsize=(5,5))
+        plt.suptitle("Gráfico tartaruga")
+        plt.title(nome)
         plt.plot(self.hist[:,0], self.hist[:,1])
         plt.show()
+
+        return fig
 
     def parameter_change(self, config):
         '''

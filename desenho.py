@@ -7,9 +7,9 @@ from turtle import TurtleGraph
 markov = Markov()
 turtle = TurtleGraph()
 
-opt = "circular_pattern"
+nome = "Padrão circular"
 
-if opt == "random":
+if nome == "Aleatório":
 
     n_state = len(TurtleGraph.command_list)
 
@@ -25,7 +25,7 @@ else:
     for command in TurtleGraph.command_list:
         markov.add_states(command)
 
-    if opt == "square":
+    if nome == "Quadrado":
         markov.transition_prob("F","R", 1.0)
         markov.transition_prob("R","F", 1.0)
 
@@ -34,7 +34,7 @@ else:
                 markov.transition_prob(command, "F", 1.0)
             turtle.parameter_change(False)
 
-    elif opt == "circular_pattern":
+    else:
         markov.transition_prob("L","ANGLE", 0.5)
         markov.transition_prob("L","DIST", 0.5)
 
@@ -59,8 +59,10 @@ sequence = markov.generate_states(1000)
 
 plot_2dhistogram(markov.transition,TurtleGraph.command_list,"Matriz de Transição", 
                                         "Próximo estado",
-                                        "Estado anterior", False)
+                                        "Estado anterior", True, nome)
 
 
 turtle.run_sequence(sequence)
-turtle.plot()
+fig = turtle.plot(nome)
+
+fig.savefig("Desenho - "+nome)
